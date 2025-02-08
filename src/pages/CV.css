@@ -1,0 +1,127 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-custom {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .brand-custom {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .nav-custom .nav-link-custom {
+    margin: 0 15px;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+  }
+  
+  .nav-custom .nav-link-custom:hover {
+    color: #007bff !important;
+  }
+  
+  /* Ajoutez cette classe à votre fichier CSS */
+  .section-custom {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    scroll-margin-top: 70px; /* Ajustez cette valeur à la hauteur de votre header */
+  }
+  
+  #about{
+    margin-top: 40px;
+  }
+  
+  .section-custom:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .section-title {
+    color: #004085;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .section-description {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  
+  
+  
+  .about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-pic {
+    max-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+  }
+  
+  .profile-pic:hover {
+    transform: scale(1.05);
+  }
+  
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .skill-item {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  
+  .skill-item:hover {
+    background-color: #0056b3;
+  }
+  
+  .project-card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  
+  .project-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .project-title {
+    color: #007bff;
+    font-size: 1.5rem;
+  }
+  
+  .project-description {
+    color: #666;
+    font-size: 1.1rem;
+  }
+  
+  footer {
+    margin-top: 40px;
+  }
+  
