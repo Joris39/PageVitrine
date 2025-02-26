@@ -24,20 +24,43 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const API_URL = 'http://jorisbaud.ddns.net:3001/api/contact';
+
+    setStatus({
+      type: "info",
+      message: "Envoi en cours..."
+    });
+
+    console.log('Tentative de connexion à:', API_URL);
+      
     try {
-      // Simulation d'envoi (à remplacer par votre logique d'envoi réelle)
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setStatus({
-        type: "success",
-        message: "Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais."
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      
-      setFormData({ name: "", email: "", subject: "", message: "" });
+
+      console.log('Statut de la réponse:', response.status);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({
+          type: "success",
+          message: "Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais."
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error(data.message || 'Erreur lors de l\'envoi du message.');
+      }
     } catch (error) {
+      console.error('Erreur détaillée:', error);
       setStatus({
         type: "danger",
-        message: "Une erreur est survenue lors de l'envoi du message."
+        message: "Une erreur est survenue lors de l'envoi du message : " + error.message
       });
     }
   };
@@ -48,7 +71,6 @@ const Contact = () => {
         once: true,
       });
     }, []);
-  
 
   return (
     <Container className="contact-container my-5">
@@ -131,7 +153,7 @@ const Contact = () => {
                   />
                 </Form.Group>
 
-                <Button 
+                <Button
                   variant="primary"
                   size="lg"
                   type="submit"

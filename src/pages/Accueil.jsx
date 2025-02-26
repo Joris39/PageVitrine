@@ -159,7 +159,7 @@ const Accueil = () => {
         <Col className="text-center">
           <h3 className="mb-4">Technologies maîtrisées</h3>
           <div className="tech-stack">
-            {['Java', 'Python', 'React', 'Node.js', 'SQL', 'Git'].map((tech, index) => (
+            {['Java', 'Python', 'JavaScript', 'SQL', 'Kotlin', 'Pascal', 'C', 'C++', 'Node.js', 'Git'].map((tech, index) => (
               <span key={index} className="tech-badge">
                 {tech}
               </span>

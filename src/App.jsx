@@ -1,4 +1,4 @@
-import React , { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Accueil from "./pages/Accueil";
 import CV from "./pages/CV";
@@ -11,36 +11,70 @@ import AOS from 'aos';
 
 function App() {
 
+
+    const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const navRef = useRef(null);
+
+  // Gestion du clic en dehors du menu
   useEffect(() => {
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
-    }, []);
+    function handleClickOutside(event) {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsNavCollapsed(true);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Fonction pour fermer le menu
+  const handleNavCollapse = () => setIsNavCollapsed(true);
 
     
   return (
     <Router>
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" ref={navRef}>
           <div className="container">
-            <Link className="navbar-brand" to="/">Joris Baud</Link>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <Link className="navbar-brand" to="/" onClick={handleNavCollapse}>
+              Joris Baud
+            </Link>
+            <button 
+              className="navbar-toggler" 
+              type="button" 
+              aria-controls="navbarNav"
+              aria-expanded={!isNavCollapsed}
+              aria-label="Toggle navigation"
+              onClick={() => setIsNavCollapsed(!isNavCollapsed)}
+            >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
+            <div 
+              className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} 
+              id="navbarNav"
+            >
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">Accueil</Link>
+                  <Link className="nav-link" to="/" onClick={handleNavCollapse}>
+                    Accueil
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/cv">CV</Link>
+                  <Link className="nav-link" to="/cv" onClick={handleNavCollapse}>
+                    CV
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/projets">Projets</Link>
+                  <Link className="nav-link" to="/projets" onClick={handleNavCollapse}>
+                    Projets
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/contact">Contact</Link>
+                  <Link className="nav-link" to="/contact" onClick={handleNavCollapse}>
+                    Contact
+                  </Link>
                 </li>
               </ul>
             </div>

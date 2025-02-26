@@ -41,9 +41,15 @@ function CV() {
             </p>
             <div className="skills-list">
               <span className="skill-item" data-aos="fade-left">Java</span>
-              <span className="skill-item" data-aos="fade-left" data-aos-delay="200">Python</span>
-              <span className="skill-item" data-aos="fade-left" data-aos-delay="400">C</span>
-              <span className="skill-item" data-aos="fade-left" data-aos-delay="600">C++</span>
+              <span className="skill-item" data-aos="fade-left" data-aos-delay="100">Python</span>
+              <span className="skill-item" data-aos="fade-left" data-aos-delay="200">JavaScript</span>
+              <span className="skill-item" data-aos="fade-left" data-aos-delay="300">SQL</span>
+              <span className="skill-item" data-aos="fade-left" data-aos-delay="400">Kotlin</span>
+              <span className="skill-item" data-aos="fade-left" data-aos-delay="500">Pascal</span>
+              <span className="skill-item" data-aos="fade-left" data-aos-delay="600">C</span>
+              <span className="skill-item" data-aos="fade-left" data-aos-delay="700">C++</span>
+              <span className="skill-item" data-aos="fade-left" data-aos-delay="800">Node.js</span>
+              <span className="skill-item" data-aos="fade-left" data-aos-delay="900">Git</span>
             </div>
           </Col>
         </Row>
@@ -54,13 +60,13 @@ function CV() {
             <Card className="mb-3">
               <Card.Body>
                 <Card.Title>Master d'informatique</Card.Title>
-                <Card.Text>Université de Franche-Comté, Besançon (2021 - Aujourd'hui)</Card.Text>
+                <Card.Text>Université de Bourgogne, Dijon (2024 - Aujourd'hui)</Card.Text>
               </Card.Body>
             </Card>
             <Card className="mb-3">
               <Card.Body>
                 <Card.Title>Licence d'informatique</Card.Title>
-                <Card.Text>Université de Franche-Comté, Besançon</Card.Text>
+                <Card.Text>Université de Franche-Comté, Besançon (2021 - 2024)</Card.Text>
               </Card.Body>
             </Card>
             <Card className="mb-3">
