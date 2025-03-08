@@ -24,7 +24,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const API_URL = 'http://jorisbaud.ddns.net:3001/api/contact';
+    const API_URL = 'https://jorisbaud.ddns.net:3001/api/contact';
 
     setStatus({
       type: "info",

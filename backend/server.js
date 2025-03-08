@@ -1,9 +1,18 @@
 const express = require('express');
 const cors = require('cors');
+const https = require('https');
 const nodemailer = require('nodemailer');
+const fs = require('fs');
+
 require('dotenv').config();
 
 const app = express();
+
+const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/jorisbaud.ddns.net/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/jorisbaud.ddns.net/fullchain.pem')
+};
+
 
 app.use(cors());
 app.use(express.json());
@@ -60,6 +69,6 @@ app.post('/api/contact', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
+https.createServer(options, app).listen(PORT, '0.0.0.0', () =>{
   console.log(`Serveur démarré sur le port ${PORT}`);
 });
