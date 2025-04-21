@@ -32,11 +32,10 @@ function App() {
   // Fonction pour fermer le menu
   const handleNavCollapse = () => setIsNavCollapsed(true);
 
-    
- return (
+  return (
   <Router>
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" ref={navRef}>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark" ref={navRef}>
         <div className="container">
           <Link className="navbar-brand" to="/" onClick={handleNavCollapse}>
             Joris Baud
@@ -76,14 +75,13 @@ function App() {
                   Contact
                 </Link>
               </li>
-              {/* Lien vers Plex */}
-              <li className="nav-item">
-                <a className="nav-link" href="https://jorisbaud.ddns.net/plex" onClick={handleNavCollapse}>
-                  Plex
-                </a>
-              </li>
             </ul>
           </div>
+
+
+
+
+
         </div>
       </nav>
 
@@ -97,6 +95,12 @@ function App() {
         </Routes>
       </div>
 
+
+      
+      
+
+
+
       <footer className="bg-dark text-white text-center py-3 mt-4">
         <div className="container">
           <p>&copy; 2025 Joris Baud. Tous droits réservés.</p>
@@ -109,6 +113,6 @@ function App() {
     </div>
   </Router>
 );
-}
+    
 
 export default App;
